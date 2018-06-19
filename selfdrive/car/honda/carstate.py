@@ -20,7 +20,7 @@ def parse_gear_shifter(can_gear_shifter, car_fingerprint):
       return "drive"
     elif can_gear_shifter == 0xa:
       return "sport"
-  elif car_fingerprint in (CAR.CIVIC, CAR.CRV, CAR.ACURA_RDX, CAR.CRV_5G, CAR.CIVIC_HATCH):
+  elif car_fingerprint in (CAR.CIVIC, CAR.CRV, CAR.ACURA_RDX, CAR.CRV_5G, CAR.CIVIC_HATCH, CAR.FIT):
     if can_gear_shifter == 0x1:
       return "park"
     elif can_gear_shifter == 0x2:
@@ -140,6 +140,10 @@ def get_can_signals(CP):
                 ("MAIN_ON", "SCM_BUTTONS", 0)]
   elif CP.carFingerprint == CAR.CRV:
     signals += [("MAIN_ON", "SCM_BUTTONS", 0)]
+  elif CP.carFingerprint == CAR.FIT:
+    signals += [("CAR_GAS", "GAS_PEDAL_2", 0),
+                ("MAIN_ON", "SCM_BUTTONS", 0),
+                ("BRAKE_HOLD_ACTIVE", "VSA_STATUS", 0)]
   elif CP.carFingerprint == CAR.ACURA_RDX:
     signals += [("MAIN_ON", "SCM_BUTTONS", 0)]
   elif CP.carFingerprint == CAR.ODYSSEY:

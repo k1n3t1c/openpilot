@@ -48,6 +48,9 @@ Supported Cars
 - Honda CR-V Touring 2015-2016
   - Can only be enabled above 25 mph
 
+- Honda Fit 2018 with Honda Sensing (alpha!)
+  - Can only be enabled above 25 mph
+
 - Honda Odyssey 2018 with Honda Sensing (alpha!)
   - Can only be enabled above 25 mph
 

@@ -43,6 +43,7 @@ class CAR:
   ACURA_ILX = "ACURA ILX 2016 ACURAWATCH PLUS"
   CRV = "HONDA CR-V 2016 TOURING"
   CRV_5G = "HONDA CR-V 2017 EX"
+  FIT = "HONDA FIT 2018 EX"
   ODYSSEY = "HONDA ODYSSEY 2018 EX-L"
   ACURA_RDX = "ACURA RDX 2018 ACURAWATCH PLUS"
   PILOT = "HONDA PILOT 2017 TOURING"
@@ -76,7 +77,10 @@ FINGERPRINTS = {
   }], 
   CAR.CRV_5G: [{
     57L: 3, 148L: 8, 199L: 4, 228L: 5, 231L: 5, 232L: 7, 304L: 8, 330L: 8, 340L: 8, 344L: 8, 380L: 8, 399L: 7, 401L: 8, 420L: 8, 423L: 2, 427L: 3, 428L: 8, 432L: 7, 441L: 5, 446L: 3, 450L: 8, 464L: 8, 467L: 2, 469L: 3, 470L: 2, 474L: 8, 476L: 7, 477L: 8, 479L: 8, 490L: 8, 493L: 5, 495L: 8, 507L: 1, 545L: 6, 597L: 8, 661L: 4, 662L: 4, 773L: 7, 777L: 8, 780L: 8, 795L: 8, 800L: 8, 804L: 8, 806L: 8, 808L: 8, 814L: 4, 815L: 8, 817L: 4, 825L: 4, 829L: 5, 862L: 8, 881L: 8, 882L: 4, 884L: 8, 888L: 8, 891L: 8, 927L: 8, 918L: 7, 929L: 8, 983L: 8, 985L: 3, 1024L: 5, 1027L: 5, 1029L: 8, 1036L: 8, 1039L: 8, 1064L: 7, 1108L: 8, 1092L: 1, 1115L: 4, 1125L: 8, 1127L: 2, 1296L: 8, 1302L: 8, 1322L: 5, 1361L: 5, 1365L: 5, 1424L: 5, 1600L: 5, 1601L: 8, 1618L: 5, 1633L: 8, 1670L: 5
-  }], 
+  }],
+  CAR.FIT: [{
+    57L: 3, 145L: 8, 228L: 5, 304L: 8, 342L: 6, 344L: 8, 380L: 8, 399L: 7, 401L: 8, 420L: 8, 422L: 8, 427L: 3, 428L: 8, 432L: 7, 464L: 8, 487L: 4, 490L: 8, 506L: 8, 597L: 8, 660L: 8, 661L: 4, 773L: 7, 777L: 8, 780L: 8, 800L: 8, 804L: 8, 808L: 8, 829L: 5, 862L: 8, 884L: 7, 892L: 8, 929L: 8, 985L: 3, 1024L: 5, 1027L: 5, 1029L: 8, 1036L: 8, 1039L: 8, 1108L: 8, 1322L: 5, 1361L: 5, 1365L: 5, 1424L: 5, 1600L: 5, 1601L: 8, 2015L: 3
+  }],
   CAR.ODYSSEY: [{
     57L: 3, 148L: 8, 228L: 5, 229L: 4, 316L: 8, 342L: 6, 344L: 8, 380L: 8, 399L: 7, 411L: 5, 419L: 8, 420L: 8, 427L: 3, 432L: 7, 450L: 8, 463L: 8, 464L: 8, 476L: 4, 490L: 8, 506L: 8, 542L: 7, 545L: 6, 597L: 8, 662L: 4, 773L: 7, 777L: 8, 780L: 8, 795L: 8, 800L: 8, 804L: 8, 806L: 8, 808L: 8, 817L: 4, 819L: 7, 821L: 5, 825L: 4, 829L: 5, 837L: 5, 856L: 7, 862L: 8, 871L: 8, 881L: 8, 882L: 4, 884L: 8, 891L: 8, 892L: 8, 905L: 8, 923L: 2, 927L: 8, 929L: 8, 963L: 8, 965L: 8, 966L: 8, 967L: 8, 983L: 8, 985L: 3, 1029L: 8, 1036L: 8, 1052L: 8, 1064L: 7, 1088L: 8, 1089L: 8, 1092L: 1, 1108L: 8, 1110L: 8, 1125L: 8, 1296L: 8, 1302L: 8, 1600L: 5, 1601L: 8, 1612L: 5, 1613L: 5, 1614L: 5, 1615L: 8, 1616L: 5, 1619L: 5, 1623L: 5, 1668L: 5
   },  
@@ -102,6 +106,7 @@ DBC = {
   CAR.CIVIC_HATCH: dbc_dict('honda_civic_hatchback_ex_2017_can_generated', None),
   CAR.CRV: dbc_dict('honda_crv_touring_2016_can_generated', 'acura_ilx_2016_nidec'),
   CAR.CRV_5G: dbc_dict('honda_crv_ex_2017_can_generated', None),
+  CAR.FIT: dbc_dict('honda_fit_ex_2018_can_generated', 'acura_ilx_2016_nidec'),
   CAR.ODYSSEY: dbc_dict('honda_odyssey_exl_2018_generated', 'acura_ilx_2016_nidec'),
   CAR.PILOT: dbc_dict('honda_pilot_touring_2017_can_generated', 'acura_ilx_2016_nidec'),
   CAR.RIDGELINE: dbc_dict('honda_ridgeline_black_edition_2017_can_generated', 'acura_ilx_2016_nidec'),
