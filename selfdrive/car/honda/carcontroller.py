@@ -118,7 +118,7 @@ class CarController(object):
     BRAKE_MAX = 1024/4
     if CS.CP.carFingerprint in (CAR.ACURA_ILX):
       STEER_MAX = 0xF00
-    elif CS.CP.carFingerprint in (CAR.CRV, CAR.ACURA_RDX):
+    elif CS.CP.carFingerprint in (CAR.ACURA_RDX, CAR.CRV, CAR.ODYSSEY_CHINA):
       STEER_MAX = 0x3e8  # CR-V only uses 12-bits and requires a lower value (max value from energee)
     else:
       STEER_MAX = 0x1000
