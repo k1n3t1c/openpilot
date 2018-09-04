@@ -113,7 +113,7 @@ DBC = {
   CAR.CRV: dbc_dict('honda_crv_touring_2016_can_generated', 'acura_ilx_2016_nidec'),
   CAR.CRV_5G: dbc_dict('honda_crv_ex_2017_can_generated', None),
   CAR.ODYSSEY: dbc_dict('honda_odyssey_exl_2018_generated', 'acura_ilx_2016_nidec'),
-  CAR.ODYSSEY_CHINA: dbc_dict('honda_odyssey_extreme_edition_2018_china_can_generated', 'acura_ilx_2016_nidec'),
+  CAR.ODYSSEY_CHINA: dbc_dict('honda_odyssey_extreme_edition_2018_china_can', 'acura_ilx_2016_nidec'),
   CAR.PILOT: dbc_dict('honda_pilot_touring_2017_can_generated', 'acura_ilx_2016_nidec'),
   CAR.PILOT_2019: dbc_dict('honda_pilot_touring_2017_can_generated', 'acura_ilx_2016_nidec'),
   CAR.RIDGELINE: dbc_dict('honda_ridgeline_black_edition_2017_can_generated', 'acura_ilx_2016_nidec'),

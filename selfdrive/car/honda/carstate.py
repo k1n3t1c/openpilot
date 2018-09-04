@@ -90,6 +90,8 @@ def get_can_signals(CP):
 
   if CP.carFingerprint in (CAR.ACCORD, CAR.ACCORD_15):
     signals += [("DRIVERS_DOOR_OPEN", "SCM_FEEDBACK", 1)]
+  elif CP.carFingerprint == CAR.ODYSSEY_CHINA:
+    signals += [("DRIVERS_DOOR_OPEN", "SCM_BUTTONS", 1)]
   else:
     signals += [("DOOR_OPEN_FL", "DOORS_STATUS", 1),
                 ("DOOR_OPEN_FR", "DOORS_STATUS", 1),
@@ -184,8 +186,12 @@ class CarState(object):
       self.door_all_closed = not cp.vl["SCM_FEEDBACK"]['DRIVERS_DOOR_OPEN']
     else:
       self.standstill = not cp.vl["STANDSTILL"]['WHEELS_MOVING']
-      self.door_all_closed = not any([cp.vl["DOORS_STATUS"]['DOOR_OPEN_FL'], cp.vl["DOORS_STATUS"]['DOOR_OPEN_FR'],
+      if CP.carFingerprint == CAR.ODYSSEY_CHINA:
+        self.door_all_closed = not cp.vl["SCM_BUTTONS"]['DRIVERS_DOOR_OPEN']
+      else:
+        self.door_all_closed = not any([cp.vl["DOORS_STATUS"]['DOOR_OPEN_FL'], cp.vl["DOORS_STATUS"]['DOOR_OPEN_FR'],
                                       cp.vl["DOORS_STATUS"]['DOOR_OPEN_RL'], cp.vl["DOORS_STATUS"]['DOOR_OPEN_RR']])
+
     self.seatbelt = not cp.vl["SEATBELT_STATUS"]['SEATBELT_DRIVER_LAMP'] and cp.vl["SEATBELT_STATUS"]['SEATBELT_DRIVER_LATCHED']
 
     # 2 = temporary; 3 = TBD; 4 = temporary, hit a bump; 5 = (permanent); 6 = temporary; 7 = (permanent)
