@@ -187,7 +187,7 @@ class CarState(object):
       self.door_all_closed = not cp.vl["SCM_FEEDBACK"]['DRIVERS_DOOR_OPEN']
     else:
       self.standstill = not cp.vl["STANDSTILL"]['WHEELS_MOVING']
-      if CP.carFingerprint == CAR.ODYSSEY_CHINA:
+      if self.CP.carFingerprint == CAR.ODYSSEY_CHINA:
         self.door_all_closed = not cp.vl["SCM_BUTTONS"]['DRIVERS_DOOR_OPEN']
       else:
         self.door_all_closed = not any([cp.vl["DOORS_STATUS"]['DOOR_OPEN_FL'], cp.vl["DOORS_STATUS"]['DOOR_OPEN_FR'],
