@@ -288,7 +288,7 @@ class CarInterface(object):
       ret.longitudinalKiBP = [0., 35.]
       ret.longitudinalKiV = [0.18, 0.12]
 
-    elif candidate == ODYSSEY_CHINA:
+    elif candidate == CAR.ODYSSEY_CHINA:
       stop_and_go = False
       ret.mass = 1900 + std_cargo   # in kg
       ret.wheelbase = 2.90
