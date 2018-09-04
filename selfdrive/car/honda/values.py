@@ -1,4 +1,5 @@
 from selfdrive.car import dbc_dict
+from selfdrive.config import Conversions as CV
 
 # Car button codes
 class CruiseButtons:
@@ -146,7 +147,7 @@ SPEED_FACTOR = {
   CAR.CRV: 1.025,
   CAR.CRV_5G: 1.025,
   CAR.ODYSSEY: 1.,
-  CAR.ODYSSEY_CHINA: 1.,
+  CAR.ODYSSEY_CHINA: CV.KPH_TO_MPH,
   CAR.PILOT: 1.,
   CAR.PILOT_2019: 1.,
   CAR.RIDGELINE: 1.,
