@@ -2,7 +2,7 @@ from common.numpy_fast import interp
 from common.kalman.simple_kalman import KF1D
 from selfdrive.can.parser import CANParser, CANDefine
 from selfdrive.config import Conversions as CV
-from selfdrive.car.honda.values import CAR, DBC, STEER_THRESHOLD, SPEED_FACTOR
+from selfdrive.car.honda.values import CAR, HONDA_BOSCH, DBC, STEER_THRESHOLD, SPEED_FACTOR
 
 def parse_gear_shifter(gear, vals):
 
@@ -71,7 +71,7 @@ def get_can_signals(CP):
       ("SCM_BUTTONS", 25),
   ]
 
-  if CP.radarOffCan:
+  if CP.carFingerprint in HONDA_BOSCH:
     # Civic is only bosch to use the same brake message as other hondas.
     if CP.carFingerprint not in (CAR.ACCORDH, CAR.CIVIC_HATCH):
       signals += [("BRAKE_PRESSED", "BRAKE_MODULE", 0)]
@@ -256,9 +256,7 @@ class CarState(object):
     self.steer_torque_driver = cp.vl["STEER_STATUS"]['STEER_TORQUE_SENSOR']
     self.steer_override = abs(self.steer_torque_driver) > STEER_THRESHOLD[self.CP.carFingerprint]
 
-    self.brake_switch = cp.vl["POWERTRAIN_DATA"]['BRAKE_SWITCH']
-
-    if self.CP.radarOffCan:
+    if self.CP.carFingerprint in HONDA_BOSCH:
       self.stopped = cp.vl["ACC_HUD"]['CRUISE_SPEED'] == 252.
       self.cruise_speed_offset = calc_cruise_offset(0, self.v_ego)
       if self.CP.carFingerprint in (CAR.CIVIC_HATCH, CAR.ACCORDH):
@@ -269,6 +267,7 @@ class CarState(object):
         self.brake_switch_prev = self.brake_switch
         self.brake_switch_ts = cp.ts["POWERTRAIN_DATA"]['BRAKE_SWITCH']
       else:
+        self.brake_switch = cp.vl["BRAKE_MODULE"]['BRAKE_PRESSED']
         self.brake_pressed = cp.vl["BRAKE_MODULE"]['BRAKE_PRESSED']
       # On set, cruise set speed pulses between 254~255 and the set speed prev is set to avoid this.
       self.v_cruise_pcm = self.v_cruise_pcm_prev if cp.vl["ACC_HUD"]['CRUISE_SPEED'] > 160.0 else cp.vl["ACC_HUD"]['CRUISE_SPEED']
