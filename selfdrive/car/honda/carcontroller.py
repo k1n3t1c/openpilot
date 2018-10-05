@@ -121,7 +121,7 @@ class CarController(object):
     elif CS.CP.carFingerprint in (CAR.CRV, CAR.ACURA_RDX):
       STEER_MAX = 0x3e8  # CR-V only uses 12-bits and requires a lower value (max value from energee)
     else:
-      STEER_MAX = 0x1000
+      STEER_MAX = 0x1999
 
     # steer torque is converted back to CAN reference (positive when steering right)
     apply_gas = clip(actuators.gas, 0., 1.)
@@ -130,6 +130,9 @@ class CarController(object):
 
     # any other cp.vl[0x18F]['STEER_STATUS'] is common and can happen during user override. sending 0 torque to avoid EPS sending error 5
     lkas_active = enabled and not CS.steer_not_allowed
+
+    # Dont apply steer when blinking
+    lkas_active = 0 if CS.left_blinker_on or CS.right_blinker_on else lkas_active
 
     # Send CAN commands.
     can_sends = []

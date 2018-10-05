@@ -68,6 +68,8 @@ def create_steering_control(packer, apply_steer, lkas_active, car_fingerprint, i
   values = {
     "STEER_TORQUE": apply_steer if lkas_active else 0,
     "STEER_TORQUE_REQUEST": lkas_active,
+    "SET_ME_X00": 0x1 if lkas_active else 0,
+    "SET_ME_X00_2": 0x00 if lkas_active else 0,
   }
   # Set bus 2 for accord and new crv.
   bus = 2 if car_fingerprint in HONDA_BOSCH else 0
