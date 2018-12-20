@@ -3,10 +3,16 @@ sudo: required
 services:
   - docker
 
+matrix:
+  fast_finish: true
+
+before_install:
+  - source $TRAVIS_BUILD_DIR/build/exit_early
+
 install:
   - docker build -t tmppilot -f Dockerfile.openpilot .
 
 script:
   - docker run --rm
-      -v "$(pwd)"/selfdrive/test/tests/plant/out:/tmp/openpilot/selfdrive/test/tests/plant/out
+      -v $TRAVIS_BUILD_DIR/selfdrive/test/tests/plant/out:/tmp/openpilot/selfdrive/test/tests/plant/out
       tmppilot /bin/sh -c 'cd /tmp/openpilot/selfdrive/test/tests/plant && OPTEST=1 ./test_longitudinal.py'
