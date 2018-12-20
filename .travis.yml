@@ -1,13 +1,13 @@
-sudo: required
-
-services:
-  - docker
+before_install:
+  - source $TRAVIS_BUILD_DIR/build/exit_early
 
 matrix:
   fast_finish: true
 
-before_install:
-  - source $TRAVIS_BUILD_DIR/build/exit_early
+sudo: required
+
+services:
+  - docker
 
 install:
   - docker build -t tmppilot -f Dockerfile.openpilot .
